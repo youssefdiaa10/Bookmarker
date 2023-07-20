@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="shortcut icon" href="images/bookmark.png" type="image/x-icon">
+    <title>BookMark</title>
+</head>
+<body>
+
+
+    <div class="container d-flex flex-column align-items-center my-view-port">
+       <h1 class="hero_h1 mt-5 mb-5">Bookmarker</h1>
+
+
+       <div class="dotted_line w-100"></div>
+
+
+       <div class="w-100 p-3 py-4 mt-2 d-flex flex-column justify-content-center align-items-center gap-4">
+        <h2 class="bookmark_bar"><i class="fa-solid fa-bookmark"></i>Bookmark your favorite sites<i class="fa-solid fa-bookmark"></i></h2>
+       </div>
+
+
+       <div class="site-name w-100 d-flex flex-column justify-content-center">
+        <label for="bookmarkName" class="pb-2 fw-semibold"><i class="fa-solid fa-book-bookmark pe-2"></i>Site Name</label>
+        <input type="text" placeholder="Bookmark Name" class="form-control " id="bookmarkName"/>
+       </div>
+
+
+       <div class="site-url mt-4 w-100 d-flex flex-column justify-content-center">
+          <label for="bookmarkURL" class="pb-2 fw-semibold"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+          <input type="url" placeholder="Website URL" class="form-control " id="bookmarkURL"/>
+       </div>
+
+
+       <button onclick="addBookmark()" class="btn mt-4 px-5" id="submitBtn">Submit</button>
+
+
+       <div class="dotted_line mt-3 w-100"></div>
+
+
+       <table class="table mt-4 text-center ">
+        <thead>
+          <th class="text-capitalize">Index</th>
+          <th class="text-capitalize">Website Name</th>
+          <th class="text-capitalize">Visit</th>
+          <th class="text-capitalize">Delete</th>
+        </thead>
+
+        <tbody id="tContent">
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <div class="valid-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none " id="emptyInputAlert">
+      <div class="valid-box bg-white p-4 rounded-2 shadow-lg">
+        <div class="w-100 d-flex justify-content-between align-items-center mb-4">
+          <div class="circles d-flex">
+            <span class="rounded-circle me-2 span-circles span-circles-bg-color1"></span>
+            <span class="rounded-circle me-2 span-circles span-circles-bg-color2"></span>
+            <span class="rounded-circle me-2 span-circles span-circles-bg-color3"></span>
+          </div>
+
+          <button class="btn border-0" id="closeBtn1"><i class="fa-solid fa-xmark close fs-3"></i></button>
+        </div>
+
+        <p class="m-0 pb-2 valid-p">Site Name or Url is <span class="empty">EMPTY</span></p>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="valid-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none " id="invalidInputAlert">
+    <div class="valid-box bg-white p-4 rounded-2 shadow-lg">
+      <div class="w-100 d-flex justify-content-between align-items-center mb-4">
+        <div class="circles d-flex">
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color1"></span>
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color2"></span>
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color3"></span>
+        </div>
+
+        <button class="btn border-0" id="closeBtn2"><i class="fa-solid fa-xmark close fs-3"></i></button>
+      </div>
+
+      <p class="m-0 pb-2 valid-p">Site Name or Url is <span class="name-or-url">NOT VALID</span>, Please follow the rules below :</p>
+
+      <ol class="rules list-unstyled m-0">
+        <li><i class="fa-regular fa-circle-right p-2"></i>Site name must contain at least 3 characters.</li>
+        <li><i class="fa-regular fa-circle-right p-2"></i>Site URL must contain :</li>
+        <li><span class="fw-bold ms-5 url-rules-number">First: </span> <span class="url-rules">https://</span></li>
+        <li><span class="fw-bold ms-5 url-rules-number">Second: </span> <span class="url-rules">www.</span></li>
+        <li><span class="fw-bold ms-5 url-rules-number">Third: </span> <span class="url-rules">Website Name</span></li>
+        <li><span class="fw-bold ms-5 url-rules-number">Fourth: </span> <span class="url-rules">.com</span></li>
+      </ol>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="valid-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none " id="sameInputValueAlert">
+    <div class="valid-box bg-white p-4 rounded-2 shadow-lg">
+      <div class="w-100 d-flex justify-content-between align-items-center mb-4">
+        <div class="circles d-flex">
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color1"></span>
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color2"></span>
+          <span class="rounded-circle me-2 span-circles span-circles-bg-color3"></span>
+        </div>
+
+        <button class="btn border-0 " id="closeBtn3" ><i class="fa-solid fa-xmark close fs-3"></i></button>
+      </div>
+
+      <p class="m-0 pb-2 valid-p">You have entered the Name or URL <span class="name-or-url">BEFORE</span>.</p>
+    </div>
+    </div>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
